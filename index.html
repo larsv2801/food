@@ -135,7 +135,7 @@
             z-index: 998;
             position:relative;
             background-color: white;
-            height:180dvh;
+            height:100dvh;
             font-family: arial;
             transition: 0.2s;
             opacity:0;
@@ -236,6 +236,7 @@
 
         function klaar() {
             document.getElementById("klaarscherm").style.display = "flex";
+            document.body.style.backgroundColor = "white";
             setTimeout(() => {
                 document.getElementById("klaarscherm").style.opacity = "1";
             }, 10);
