@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #drinken{
+            display:none;
+        }
+        body{
+            margin:0;
+            padding:0;
+            background-color: rgb(219, 31, 31);
+            transition: opacity 0.3s ease;
+        }
+
+        .scroller{
+            width:90vw;
+            height: 50vh;
+            position:absolute;
+            left:50%;
+            top:35%;
+            transform: translate(-50%,-50%);
+            border-radius:15px;
+            overflow-x: scroll;
+            display:flex;
+            flex-direction: row;
+            gap:2vw;
+            scroll-snap-type: x mandatory;
+            transition: opacity 0.3s ease;
+             opacity: 1;
+        }
+
+        .eet{
+            border-radius:15px;
+            width:70vw;
+            height:50vh;
+            background-color: rgb(236, 236, 236);
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            position:relative;
+        }
+
+        .voegtoeknop{
+            width:30vw;
+            height:10vw;
+            background-color: rgb(219, 31, 31);
+            border:none;
+            outline:none;
+            border-radius:50px;
+            position:absolute;
+            top:85%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            color:rgb(255, 255, 255);
+            font-family: arial; 
+            transition: opacity 0.3s ease;
+        }
+        img{
+            width:48vw;
+            height:48vw;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            transition: opacity 0.3s ease;
+        }
+        h1{
+            position:absolute;
+            left:50%;
+            top:3%;
+            text-align: center;
+            transform: translate(-50%,-50%);
+            color:black;
+            font-family: arial;
+        }
+        #bestelling{
+            width:90vw;
+            height:18vh;
+            position:absolute;
+            top:73%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            display:flex;
+            flex-wrap:wrap;
+            flex-direction: row;
+            gap:2vw;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease;
+            z-index: 999;
+        }
+        .bestel{
+            width:18vw;
+            height:18vw;
+            background-color: rgb(236, 236, 236);
+            flex-shrink: 0;
+            border-radius:15px;
+            position:relative;
+            transition: opacity 0.3s ease;
+        }
+        .bestel img{
+            width:15vw;
+            height:15vw;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            transition: opacity 0.3s ease;
+            opacity: 1;
+        }
+        #klaar{
+            width:80vw;
+            height:15vw;
+            background-color: rgb(236, 236, 236);
+            border:none;
+            outline:none;
+            border-radius:50px;
+            position:absolute;
+            bottom:1%;
+            left:50%;
+            transform: translate(-50%, -50%) scale(1);
+            color:rgb(219, 31, 31);
+            font-family: arial; 
+            font-weight: 700;
+            font-size: x-large;
+            z-index: 1;
+        }
+
+
+        #klaarscherm{
+            display:flex;
+            z-index: 998;
+            position:relative;
+            background-color: white;
+            height:100dvh;
+            font-family: arial;
+            transition: 0.2s;
+            opacity:0;
+            display:none;
+        }
+
+        #klaarscherm img{
+            position: absolute;
+            top: 40%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            transition: 0.2s;
+        }
+
+        #klaarscherm h1{
+            position: absolute;
+            top: 55%;
+            left:50%;
+            width:80vw;
+            transform: translate(-50%,-50%);
+            transition: 0.2s;
+        }
+
+        #klaarscherm h3{
+            position: absolute;
+            top: 62%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            text-align:center;
+            width:80vw;
+            font-size:4vw;
+            color:rgb(180, 180, 180);
+            opacity:1;
+            transition: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <section class="sectie" id="eten">
+        <div class="scroller" id="etscroller">
+            <div style="margin-left: 10vw;" class="eet" id="roerei"><h1>Roerei</h1><img src="https://png.pngtree.com/png-clipart/20240622/original/pngtree-a-plate-with-scrambled-eggs-png-image_15393751.png"><button onclick="addbest('roerei')" class="voegtoeknop">Voeg Toe</button></div>
+            <div class="eet" id="gekookt ei"><h1>gekookt ei</h1><img src="https://png.pngtree.com/png-vector/20240813/ourmid/pngtree-perfectly-cooked-hard-boiled-egg-with-creamy-yolk-inside-png-image_13467212.png"><button onclick="addbest('gekookt')" class="voegtoeknop">Voeg Toe</button></div>
+            <div class="eet" id="pannenkoek"><h1>pannenkoek</h1><img src="https://www.driespannenkoeken.be/wp-content/themes/dries-pannenkoeken/images/element_02.png"><button onclick="addbest('pannenkoek')" class="voegtoeknop">Voeg Toe</button></div>
+            <div class="eet" id="geroosterde boterham"><h1>geroosterde boterham</h1><img src="https://png.pngtree.com/png-clipart/20230429/original/pngtree-toast-afternoon-tea-food-transparent-png-image_9121259.png"><button onclick="addbest('geroosterde')" class="voegtoeknop">Voeg Toe</button></div>
+            <div class="eet" id="koffie"><h1>koffie</h1><img src="https://www.nescafe.com/gb/sites/default/files/2023-08/Nes_Web3_Article_Header_FindYourFix_1448x1240.png"><button onclick="addbest('koffie')" class="voegtoeknop">Voeg Toe</button></div>
+            <div style="margin-right: 10vw;" class="eet" id="chocolade ei"><h1>Chocolade ei</h1><img src="https://cocosebas.nl/cdn/shop/files/Paasei_pure_chocolade_met_amandel.webp?v=1740040020"><button onclick="addbest('chocolade')" class="voegtoeknop">Voeg Toe</button></div>
+        </div>
+    </section>
+
+    <div id="bestelling"></div>
+    <button id="klaar">Klaar!</button>
+
+    <section id="klaarscherm">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/1200px-Eo_circle_green_checkmark.svg.png">
+        <h1>Bestelling gemaakt!</h1>
+        <h3>In de keuken beginnen ze nu met het maken van uw bestelling. Als het eten klaar is zal het naar u gebracht worden.</h3>
+    </section>
+    <script>
+        var items = 0;
+        const bestels = [];
+
+        function addbest(weten){
+            items++;
+            const thisItem = items;
+
+            const newDiv = document.createElement("div");
+            if(weten === "roerei"){
+                newDiv.innerHTML = '<img src="https://png.pngtree.com/png-clipart/20240622/original/pngtree-a-plate-with-scrambled-eggs-png-image_15393751.png">';
+            } else if(weten === "gekookt"){
+                newDiv.innerHTML = '<img src="https://png.pngtree.com/png-vector/20240813/ourmid/pngtree-perfectly-cooked-hard-boiled-egg-with-creamy-yolk-inside-png-image_13467212.png">';
+            } else if(weten === "pannenkoek"){
+                newDiv.innerHTML = '<img src="https://www.driespannenkoeken.be/wp-content/themes/dries-pannenkoeken/images/element_02.png">';
+            } else if(weten === "geroosterde"){
+                newDiv.innerHTML = '<img src="https://png.pngtree.com/png-clipart/20230429/original/pngtree-toast-afternoon-tea-food-transparent-png-image_9121259.png">';
+            } else if(weten === "chocolade"){
+                newDiv.innerHTML = '<img src="https://cocosebas.nl/cdn/shop/files/Paasei_pure_chocolade_met_amandel.webp?v=1740040020">';
+            } else if(weten === "koffie"){
+                newDiv.innerHTML = '<img src="https://www.nescafe.com/gb/sites/default/files/2023-08/Nes_Web3_Article_Header_FindYourFix_1448x1240.png">';
+            }
+            newDiv.setAttribute( "class", "bestel" );
+            newDiv.setAttribute( "id", "bestel" + items );
+            bestels.push(weten);
+
+            newDiv.onclick = () => {
+                verwijder(thisItem);
+            };
+
+            console.log(items);
+            document.getElementById("bestelling").appendChild(newDiv);
+        }
+
+        function verwijder(welk){
+            bestels[welk - 1] = " ";
+            console.log(bestels);
+            document.getElementById("bestel" + welk).style.display = "none";
+        }
+
+
+        function klaar() {
+            document.getElementById("klaarscherm").style.display = "flex";
+            setTimeout(() => {
+                document.getElementById("klaarscherm").style.opacity = "1";
+            }, 10);
+
+        }
+    </script>
+</body>
+</html>
